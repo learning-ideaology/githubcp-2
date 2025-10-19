@@ -1,0 +1,69 @@
+import React from 'react';
+
+/**
+ * About section with photographer bio and image
+ * Uses semantic HTML and proper heading hierarchy
+ */
+const About = () => {
+  return (
+    <section 
+      id="about" 
+      className="py-20 px-6 bg-gray-100"
+      aria-labelledby="about-heading"
+    >
+      <div className="container mx-auto flex flex-col lg:flex-row items-center">
+        {/* Photographer image */}
+        <div className="lg:w-1/2 mb-8 lg:mb-0 lg:pr-12">
+          <img 
+            src="https://images.unsplash.com/photo-1554080353-a576cf803bda?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=1000&q=80" 
+            alt="The photographer at work" 
+            className="w-full h-auto object-cover shadow-lg"
+            loading="lazy"
+          />
+        </div>
+        
+        {/* Bio text */}
+        <div className="lg:w-1/2">
+          <h2 id="about-heading" className="text-3xl md:text-4xl font-serif mb-6">
+            About Me
+          </h2>
+          <p className="text-lg mb-4">
+            With over a decade of experience in professional photography, I specialize in creating striking black and white imagery that tells a story. My work focuses on the interplay of light and shadow, capturing authentic moments with a timeless quality.
+          </p>
+          <p className="text-lg mb-6">
+            Based in New York, I collaborate with agencies, brands, and publications to create visual content that stands out. My approach combines technical precision with artistic intuition, resulting in images that are both beautiful and meaningful.
+          </p>
+          
+          {/* Skills/Experience */}
+          <div className="mb-6">
+            <h3 className="text-xl font-serif mb-3">Specializations</h3>
+            <ul className="grid grid-cols-2 gap-2">
+              <li className="flex items-center">
+                <span className="mr-2">•</span> Portrait Photography
+              </li>
+              <li className="flex items-center">
+                <span className="mr-2">•</span> Fashion Editorials
+              </li>
+              <li className="flex items-center">
+                <span className="mr-2">•</span> Commercial Campaigns
+              </li>
+              <li className="flex items-center">
+                <span className="mr-2">•</span> Architectural Studies
+              </li>
+            </ul>
+          </div>
+          
+          {/* Clients list */}
+          <div>
+            <h3 className="text-xl font-serif mb-3">Selected Clients</h3>
+            <p className="italic">
+              Vogue, Harper's Bazaar, The New York Times, Apple, Nike, Gucci, W Magazine
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;
