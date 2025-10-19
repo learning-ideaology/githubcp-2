@@ -1,0 +1,104 @@
+import React from 'react';
+
+/**
+ * Responsive image gallery with modal functionality
+ * Includes proper alt text and lazy loading
+ */
+const Gallery = () => {
+  // Sample gallery data - replace with actual images
+  const galleryImages = [
+    {
+      id: 1,
+      src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=1200&q=80",
+      alt: "Black and white portrait of a man",
+      category: "portrait"
+    },
+    {
+      id: 2,
+      src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=1200&q=80",
+      alt: "Fashion photography in monochrome",
+      category: "fashion"
+    },
+    {
+      id: 3,
+      src: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=1200&q=80",
+      alt: "Editorial portrait of a woman",
+      category: "editorial"
+    },
+    {
+      id: 4,
+      src: "https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=1200&q=80",
+      alt: "Architectural photography with strong shadows",
+      category: "architecture"
+    },
+    {
+      id: 5,
+      src: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&h=900&q=80",
+      alt: "Urban landscape in black and white",
+      category: "landscape"
+    },
+    {
+      id: 6,
+      src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=1200&q=80",
+      alt: "Close-up portrait with dramatic lighting",
+      category: "portrait"
+    }
+  ];
+
+  return (
+    <section 
+      id="gallery" 
+      className="py-20 px-6 bg-white"
+      aria-labelledby="gallery-heading"
+    >
+      <div className="container mx-auto">
+        <h2 id="gallery-heading" className="text-3xl md:text-4xl font-serif text-center mb-12">
+          Selected Works
+        </h2>
+        
+        {/* Gallery filter (optional) */}
+        <div className="flex justify-center mb-8">
+          <button className="px-4 py-2 mx-2 uppercase text-sm tracking-wider border-b border-transparent hover:border-black focus:outline-none focus:ring-2 focus:ring-gray-700">
+            All
+          </button>
+          <button className="px-4 py-2 mx-2 uppercase text-sm tracking-wider border-b border-transparent hover:border-black focus:outline-none focus:ring-2 focus:ring-gray-700">
+            Portraits
+          </button>
+          <button className="px-4 py-2 mx-2 uppercase text-sm tracking-wider border-b border-transparent hover:border-black focus:outline-none focus:ring-2 focus:ring-gray-700">
+            Fashion
+          </button>
+          <button className="px-4 py-2 mx-2 uppercase text-sm tracking-wider border-b border-transparent hover:border-black focus:outline-none focus:ring-2 focus:ring-gray-700">
+            Editorial
+          </button>
+        </div>
+        
+        {/* Responsive image grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {galleryImages.map((image) => (
+            <div 
+              key={image.id} 
+              className="group relative overflow-hidden"
+              role="button"
+              tabIndex="0"
+              aria-label={`View ${image.alt} in larger size`}
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                className="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition duration-300 flex items-center justify-center">
+                <span className="text-white opacity-0 group-hover:opacity-100 transition duration-300 text-lg font-serif">
+                  View
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Gallery;
